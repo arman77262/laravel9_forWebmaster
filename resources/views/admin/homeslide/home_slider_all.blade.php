@@ -13,11 +13,15 @@
                 <div class="card">
                     <div class="card-body">
 
-                        <form method="POST" action="{{route('store.profile')}}" enctype="multipart/form-data">
+                        <form method="POST" action="{{route('update.slider')}}" enctype="multipart/form-data">
 
                             @csrf
 
+
                             <h4 class="card-title">Home Slider Page</h4> <br> <br>
+
+                            <input type="hidden" name="id" value="{{ $homeSlide->id }}">
+
 
                             <div class="row mb-3">
                                 <label for="example-text-input" class="col-sm-2 col-form-label">Title</label>
@@ -47,10 +51,11 @@
                                 </div>
                             </div>
 
+
                             <div class="row mb-3">
                                 <label for="example-text-input" class="col-sm-2 col-form-label">Slider Image</label>
                                 <div class="col-sm-10">
-                                    <img id="showimage" class="card-img-top img-fluid img-thumbnail" src="{{(!empty($homeSlide->slider_image)) ? url('upload/home_slider/'.$homeSlide->slider_image) : url('upload/nophoto.jpg')}}" alt="Card image cap" style="width:200px">
+                                    <img id="showimage" class="card-img-top img-fluid img-thumbnail" src="{{(!empty($homeSlide->slider_image)) ? url($homeSlide->slider_image) : url('upload/nophoto.jpg')}}" alt="Card image cap" style="width:200px">
                                 </div>
                             </div>
                             <!-- end row -->
